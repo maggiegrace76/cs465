@@ -1,11 +1,10 @@
 const express = require('express');
-
-// CRITICAL FIX: The Express Router MUST be initialized here
-const router = express.Router(); 
-
+const router = express.Router(); // FIX: Router must be initialized!
 const ctrlTravlr = require('../controllers/travlr');
 
-/* Map the root URL ('/') to the homelist function */
+/* Map the URL routes to controller functions */
 router.get('/', ctrlTravlr.homelist);
+router.get('/travel', ctrlTravlr.travelList);
+router.get('/rooms', ctrlTravlr.roomList);
 
 module.exports = router;
