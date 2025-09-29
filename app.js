@@ -1,17 +1,25 @@
 const express = require('express');
 const path = require('path');
+const exphbs = require('express-handlebars'); 
+const indexRouter = require('./app_server/routes/index'); 
+
 const app = express();
 const port = 3000;
 
-// 1. Correctly place static HTML content into the appropriate Express framework folders.
-// Set the Express server to serve static files from the 'app-public' folder.
+// 2. Set up Handlebars view engine
+app.engine('hbs', exphbs.engine({
+    defaultLayout: 'main', 
+    layoutsDir: path.join(__dirname, 'app_server', 'views', 'layouts'), 
+    extname: '.hbs' 
+}));
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'app_server', 'views'));
+
+// 3. Serve static files (CSS, images, JS) from app-public
 app.use(express.static(path.join(__dirname, 'app-public')));
 
-// Define the default route. Express will automatically look for index.html 
-// inside the static folder when this route is hit.
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'app-public', 'index.html'));
-});
+// 4. Register the new router for application routes (THIS REPLACES the old res.sendFile!)
+app.use('/', indexRouter);
 
 // Start the server
 app.listen(port, () => {
