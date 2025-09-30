@@ -1,60 +1,17 @@
-<div id="contents">
-  <div class="box">
-    <div>
-      <div class="body">
-        <h1>Travel & Nearby Adventures</h1>
-        <p>
-          Getting here is simple, and once you arrive there’s plenty to explore.
-          From reef snorkeling to coastal walks, plan your perfect day below.
-        </p>
+<h1>Travel Packages</h1>
+<p>Browse available trips pulled dynamically from the JSON data file.</p>
+
+<ul class="trip-grid" style="list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding:0;">
+  {{#each trips}}
+    <li style="border:1px solid #eee;border-radius:12px;overflow:hidden;">
+      <img src="{{this.image}}" alt="{{this.name}}">
+      <div style="padding:12px;">
+        <h2 style="margin:0 0 8px 0;font-size:1.1rem;">{{this.name}}</h2>
+        <p style="margin:0 0 6px 0;">Length: {{this.length}}</p>
+        <p style="margin:0 0 6px 0;">Resort: {{this.resort}}</p>
+        <p style="margin:0 0 6px 0;">Per person: ${{this.perPerson}}</p>
+        <p style="margin:0;">{{this.description}}</p>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- Hero -->
-<section>
-  <img src="/sea-sound.jpg" alt="Coastline near Sea Sound Resort" />
-</section>
-
-<!-- How to Get Here -->
-<section>
-  <h2>How to Get Here</h2>
-  <ul style="line-height:1.7">
-    <li><strong>By Air:</strong> Fly into the nearest international airport. Taxis and shuttles operate 24/7.</li>
-    <li><strong>By Car:</strong> Scenic coastal highway access with on-site parking available for guests.</li>
-    <li><strong>By Ferry:</strong> Seasonal ferry service connects nearby islands to our marina.</li>
-  </ul>
-</section>
-
-<!-- Top Activities -->
-<section>
-  <h2>Top Activities</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
-    <article style="border:1px solid #eee;border-radius:8px;padding:12px">
-      <img src="/reef1.jpg" alt="Reef snorkeling area 1" />
-      <h3 style="margin:12px 0 6px">Reef Snorkeling</h3>
-      <p>Guided snorkel tours over vibrant reefs with calm waters ideal for beginners.</p>
-    </article>
-    <article style="border:1px solid #eee;border-radius:8px;padding:12px">
-      <img src="/reef2.jpg" alt="Reef snorkeling area 2" />
-      <h3 style="margin:12px 0 6px">Kayak the Coves</h3>
-      <p>Rent a kayak and explore hidden coves, sea arches, and quiet beaches at your pace.</p>
-    </article>
-    <article style="border:1px solid #eee;border-radius:8px;padding:12px">
-      <img src="/reef3.jpg" alt="Coastal reef viewpoint" />
-      <h3 style="margin:12px 0 6px">Sunset Lookouts</h3>
-      <p>Short hikes lead to panoramic viewpoints—perfect for sunrise photos and sunset picnics.</p>
-    </article>
-  </div>
-</section>
-
-<!-- Tips -->
-<section>
-  <h2>Travel Tips</h2>
-  <ul style="line-height:1.7">
-    <li>Pack reef-safe sunscreen and a light cover-up for midday sun.</li>
-    <li>Early morning is best for calm water and fewer crowds on the reefs.</li>
-    <li>Reserve tours 24 hours in advance during peak season.</li>
-  </ul>
-</section>
+    </li>
+  {{/each}}
+</ul>

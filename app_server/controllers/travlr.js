@@ -1,28 +1,27 @@
 const fs = require('fs');
-// Load the trips data from the JSON file
+
+// Load trips once at server start
 const trips = JSON.parse(fs.readFileSync('./app_server/data/trips.json', 'utf8'));
 
-/* GET home page */
+/* GET home page (show a few “featured” trips) */
 const homelist = (req, res) => {
-    res.render('index', { title: 'Travlr Getaways - Home' });
+  res.render('index', {
+    title: 'Travlr Getaways - Home',
+    trips: trips.slice(0, 3) // show 3 featured on Home
+  });
 };
 
-/* GET travel list page */
+/* GET travel list page (show ALL trips) */
 const travelList = (req, res) => {
-    res.render('travel', {
-        title: 'Travlr Getaways - Packages',
-        // Pass the JSON data array to the 'travel.hbs' template
-        trips: trips
-    });
+  res.render('travel', {
+    title: 'Travlr Getaways - Packages',
+    trips
+  });
 };
 
-/* GET rooms list page */
+/* GET rooms list page (static for now) */
 const roomList = (req, res) => {
-    res.render('rooms', { title: 'Travlr Getaways - Rooms' });
+  res.render('rooms', { title: 'Travlr Getaways - Rooms' });
 };
 
-module.exports = {
-    homelist,
-    travelList,
-    roomList
-};
+module.exports = { homelist, travelList, roomList };

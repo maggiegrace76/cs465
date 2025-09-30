@@ -1,13 +1,13 @@
 const express = require('express');
-const path = require('path');                // Core Node.js module for paths
+const path = require('path');
 const exphbs = require('express-handlebars');
 
-const indexRouter = require('./app_server/routes/index'); // Main router
+const indexRouter = require('./app_server/routes/index');
 
 const app = express();
 const port = 3000;
 
-// 1. Set up Handlebars view engine
+// View engine
 app.engine('hbs', exphbs.engine({
   extname: '.hbs',
   layoutsDir: path.join(__dirname, 'app_server', 'views', 'layouts'),
@@ -16,14 +16,21 @@ app.engine('hbs', exphbs.engine({
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 
-// 2. Serve static files (CSS, images, JS) from app-public
-// Use absolute path to avoid issues with relative dirs
-app.use('/', express.static(path.join(__dirname, 'app-public')));
+// Make {{year}} available in templates (optional but tidy)
+app.use((req, res, next) => {
+  res.locals.year = new Date().getFullYear();
+  next();
+});
 
-// 3. Register the router for application routes
+// Serve static files from BOTH potential folders
+app.use(express.static(path.join(__dirname, 'app-public')));  // hyphen
+app.use(express.static(path.join(__dirname, 'app_public')));  // underscore
+// Now /images/... will work no matter which folder name you used.
+
+// Routes
 app.use('/', indexRouter);
 
-// 4. Start the server
+// Start
 app.listen(port, () => {
   console.log(`Express server listening at http://localhost:${port}`);
 });

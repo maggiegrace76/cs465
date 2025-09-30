@@ -17,7 +17,7 @@
   <img src="/sea-sound.jpg" alt="Ocean view at Sea Sound Resort" />
 </section>
 
-<!-- Featured Rooms -->
+<!-- Featured Rooms (static) -->
 <section>
   <h2>Featured Rooms</h2>
   <ul id="rooms" style="list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
@@ -72,4 +72,22 @@
       <figcaption>Explore Reef 3</figcaption>
     </figure>
   </div>
+</section>
+
+<!-- Dynamic Featured Trips from JSON -->
+<section>
+  <h2>Featured Trips</h2>
+  <ul class="trip-grid" style="list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding:0;">
+    {{#each trips}}
+      <li style="border:1px solid #eee;border-radius:12px;overflow:hidden;">
+        <img src="{{this.image}}" alt="{{this.name}}">
+        <div style="padding:12px;">
+          <h3 style="margin:0 0 8px 0;font-size:1rem;">{{this.name}}</h3>
+          <p style="margin:0 0 6px 0;">Length: {{this.length}}</p>
+          <p style="margin:0 0 6px 0;">Per person: ${{this.perPerson}}</p>
+          <p style="margin:0;">{{this.description}}</p>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
 </section>
