@@ -3,6 +3,8 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 
 const indexRouter = require('./app_server/routes/index');
+const tripsRouter = require('./app_server/routes/trips');
+require('./app_server/models/db');
 
 const app = express();
 const port = 3000;
@@ -29,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'app_public')));  // underscore
 
 // Routes
 app.use('/', indexRouter);
+app.use('/api/trips', tripsRouter);
 
 // Start
 app.listen(port, () => {

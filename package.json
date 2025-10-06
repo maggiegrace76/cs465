@@ -20,6 +20,7 @@
   "homepage": "https://github.com/maggiegrace76/cs465#readme",
   "dependencies": {
     "express": "^5.1.0",
-    "express-handlebars": "^8.0.3"
+    "express-handlebars": "^8.0.3",
+    "mongoose": "^8.19.0"
   }
 }
