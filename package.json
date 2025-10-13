@@ -19,8 +19,11 @@
   },
   "homepage": "https://github.com/maggiegrace76/cs465#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "express-handlebars": "^8.0.3",
-    "mongoose": "^8.19.0"
+    "mongoose": "^8.19.1",
+    "morgan": "^1.10.1"
   }
 }
