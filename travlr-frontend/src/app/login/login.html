@@ -1,0 +1,15 @@
+<div style="max-width:420px;margin:2rem auto">
+  <h2>Admin Login</h2>
+  <form (ngSubmit)="submit()">
+    <div class="mb-3">
+      <label>Email</label>
+      <input [(ngModel)]="email" name="email" type="email" class="form-control" required />
+    </div>
+    <div class="mb-3">
+      <label>Password</label>
+      <input [(ngModel)]="password" name="password" type="password" class="form-control" required />
+    </div>
+    <button class="btn btn-primary w-100" type="submit">Log in</button>
+    <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+  </form>
+</div>

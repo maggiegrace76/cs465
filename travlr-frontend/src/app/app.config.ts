@@ -1,12 +1,15 @@
-// src/app/app.config.ts
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { routes } from './app.routes';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { appRoutes } from './app.routes';
+import { provideHttpClient, withInterceptorsFromDi, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { TokenInterceptor } from './interceptors/token-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
-    provideHttpClient(withFetch())   // enables HttpClient for your TripDataService
+    provideRouter(appRoutes),
+    importProvidersFrom(FormsModule),
+    provideHttpClient(withInterceptorsFromDi()),
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ]
 };

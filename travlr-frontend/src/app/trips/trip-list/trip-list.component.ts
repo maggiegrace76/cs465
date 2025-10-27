@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TripDataService } from '../trip-data';
 import { Trip } from '../trip.model';
-import { TripCardComponent } from '../trip-card/trip-card';
+import { TripCardComponent } from '../trip-card/trip-card.component';
 import { RouterModule } from '@angular/router';
 
 @Component({

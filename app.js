@@ -1,4 +1,4 @@
-// app.js (root of ~/Documents/cs465)
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 
@@ -14,6 +14,10 @@ app.use(express.json());
 app.get('/', (_req, res) => {
   res.send('Travlr API is running. Try <a href="/api/trips">/api/trips</a>.');
 });
+
+// ---- NEW: mount auth routes ----
+const authRouter = require('./app_api/routes/auth');
+app.use('/api/auth', authRouter);
 
 // ---- mount the API under /api ----
 const tripsRouter = require('./app_api/routes/trips');

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TripEdit } from './trip-edit';
+import { TripEdit } from './trip-edit.component';
 
 describe('TripEdit', () => {
   let component: TripEdit;

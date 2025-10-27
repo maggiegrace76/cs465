@@ -1,11 +1,14 @@
-import { Routes } from '@angular/router';
-import { TripListComponent } from './trips/trip-list/trip-list';
-import { TripAddComponent } from './trips/trip-add/trip-add';
-import { TripEditComponent } from './trips/trip-edit/trip-edit';
+import { Routes as AngularRoutes } from '@angular/router';
+import { LoginComponent } from './login/login'; // your file is login.ts
+import { TripListComponent } from './trips/trip-list/trip-list.component';
+import { TripAddComponent } from './trips/trip-add/trip-add.component';
+import { TripEditComponent } from './trips/trip-edit/trip-edit.component';
+import { AuthGuard } from './guards/auth-guard';
 
-export const routes: Routes = [
-  { path: '', redirectTo: 'trips', pathMatch: 'full' },
-  { path: 'trips', component: TripListComponent },
-  { path: 'trips/add', component: TripAddComponent },
-  { path: 'trips/:code/edit', component: TripEditComponent },
+export const appRoutes: AngularRoutes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'trips', component: TripListComponent, canActivate: [AuthGuard] },
+  { path: 'trips/add', component: TripAddComponent, canActivate: [AuthGuard] },
+  { path: 'trips/:code/edit', component: TripEditComponent, canActivate: [AuthGuard] }
 ];
