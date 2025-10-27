@@ -1,0 +1,44 @@
+<div class="container py-2">
+  <h2>{{ (code ? 'Edit Trip ('+code+')' : 'Add Trip') }}</h2>
+  <div *ngIf="loading">Loading…</div>
+  <div class="alert alert-danger" *ngIf="error">{{ error }}</div>
+
+  <form [formGroup]="form" (ngSubmit)="save()" class="row g-3">
+    <div class="col-md-6" *ngIf="!code">
+      <label class="form-label">Code</label>
+      <input class="form-control" formControlName="code">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Name</label>
+      <input class="form-control" formControlName="name">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Length (days)</label>
+      <input type="number" class="form-control" formControlName="length">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Start</label>
+      <input type="date" class="form-control" formControlName="start">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Price (per person)</label>
+      <input type="number" class="form-control" formControlName="perPerson">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Resort</label>
+      <input class="form-control" formControlName="resort">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Image URL</label>
+      <input class="form-control" formControlName="image">
+    </div>
+    <div class="col-12">
+      <label class="form-label">Description</label>
+      <textarea rows="3" class="form-control" formControlName="description"></textarea>
+    </div>
+    <div class="col-12 d-flex gap-2">
+      <button class="btn btn-primary" [disabled]="saving">{{ code ? 'Update' : 'Save' }}</button>
+      <a class="btn btn-secondary" routerLink="/trips">Cancel</a>
+    </div>
+  </form>
+</div>

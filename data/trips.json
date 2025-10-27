@@ -1,0 +1,35 @@
+[
+  {
+    "code": "TRIP-01",
+    "name": "Bali Explorer",
+    "length": "10 days",
+    "start": "2024-11-01T00:00:00.000Z",
+    "resort": "Beachfront Bliss Resort",
+    "perPerson": "2100",
+    "image": "/images/bali-explore.jpg",
+    "description": "Discover the tranquility of Bali with stunning beaches, sacred temples, and lush rice paddies.",
+    "rating": 5
+  },
+  {
+    "code": "TRIP-02",
+    "name": "Greek Isles Cruise",
+    "length": "7 days",
+    "start": "2024-10-15T00:00:00.000Z",
+    "resort": "Mediterranean Star Liner",
+    "perPerson": "1850",
+    "image": "/images/greece-cruise.jpg",
+    "description": "Sail through the Aegean Sea, exploring Santorini, Mykonos, and Crete.",
+    "rating": 4
+  },
+  {
+    "code": "TRIP-03",
+    "name": "Alaskan Winter Adventure",
+    "length": "5 days",
+    "start": "2025-01-20T00:00:00.000Z",
+    "resort": "Northern Lights Lodge",
+    "perPerson": "2500",
+    "image": "/images/alaska-winter.jpg",
+    "description": "Experience dog sledding and witness the Aurora Borealis in the Alaskan wilderness.",
+    "rating": 5
+  }
+]

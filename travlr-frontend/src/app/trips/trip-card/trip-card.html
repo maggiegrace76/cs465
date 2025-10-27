@@ -1,0 +1,16 @@
+<div class="card h-100">
+  <img *ngIf="trip.image" [src]="trip.image" class="card-img-top" [alt]="trip.name">
+  <div class="card-body">
+    <h5 class="card-title">{{ trip.name }}</h5>
+    <p class="mb-1"><strong>Code:</strong> {{ trip.code }}</p>
+    <p class="mb-1"><strong>Length:</strong> {{ trip.length }} days</p>
+    <p class="mb-1"><strong>Resort:</strong> {{ trip.resort }}</p>
+    <p class="mb-0"><strong>Start:</strong> {{ trip.start | date }} • ${{ trip.perPerson }}</p>
+  </div>
+  <div class="card-footer d-flex gap-2">
+    <a class="btn btn-sm btn-outline-primary" [routerLink]="['/trips', trip.code, 'edit']">Edit</a>
+    <button class="btn btn-sm btn-outline-danger" [disabled]="deleting" (click)="remove()">
+      {{ deleting ? 'Deleting…' : 'Delete' }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<div id="contents">
+  <div class="box">
+    <div>
+      <div class="body">
+        <h1>Welcome to Sea Sound Resort</h1>
+        <p>
+          Escape to clear water, fresh seafood, and rooms with a view. Explore our
+          rooms, meals, and nearby adventures below.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Hero image -->
+<section>
+  <img src="/sea-sound.jpg" alt="Ocean view at Sea Sound Resort" />
+</section>
+
+<!-- Featured Rooms (static) -->
+<section>
+  <h2>Featured Rooms</h2>
+  <ul id="rooms" style="list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+    <li>
+      <a href="/rooms"><img src="/first-class.jpg" alt="First Class Room" /></a>
+      <h3><a href="/rooms">First Class Room</a></h3>
+    </li>
+    <li>
+      <a href="/rooms"><img src="/deluxe.jpg" alt="Deluxe Room" /></a>
+      <h3><a href="/rooms">Deluxe Room</a></h3>
+    </li>
+    <li>
+      <a href="/rooms"><img src="/suite.jpg" alt="Suite Room" /></a>
+      <h3><a href="/rooms">Suite Room</a></h3>
+    </li>
+  </ul>
+</section>
+
+<!-- Dining Section -->
+<section>
+  <h2>On the Menu</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+    <figure>
+      <img src="/buffet.jpg" alt="Resort buffet" />
+      <figcaption>Daily Buffet</figcaption>
+    </figure>
+    <figure>
+      <img src="/seafoods.jpg" alt="Seafood platter" />
+      <figcaption>Fresh Seafoods</figcaption>
+    </figure>
+    <figure>
+      <img src="/desserts.jpg" alt="Assorted desserts" />
+      <figcaption>House Desserts</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Gallery / Reefs -->
+<section>
+  <h2>See the Reefs</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+    <figure>
+      <img src="/reef1.jpg" alt="Reef 1" />
+      <figcaption>Explore Reef 1</figcaption>
+    </figure>
+    <figure>
+      <img src="/reef2.jpg" alt="Reef 2" />
+      <figcaption>Explore Reef 2</figcaption>
+    </figure>
+    <figure>
+      <img src="/reef3.jpg" alt="Reef 3" />
+      <figcaption>Explore Reef 3</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Dynamic Featured Trips from JSON -->
+<section>
+  <h2>Featured Trips</h2>
+  <ul class="trip-grid" style="list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding:0;">
+    {{#each trips}}
+      <li style="border:1px solid #eee;border-radius:12px;overflow:hidden;">
+        <img src="{{this.image}}" alt="{{this.name}}">
+        <div style="padding:12px;">
+          <h3 style="margin:0 0 8px 0;font-size:1rem;">{{this.name}}</h3>
+          <p style="margin:0 0 6px 0;">Length: {{this.length}}</p>
+          <p style="margin:0 0 6px 0;">Per person: ${{this.perPerson}}</p>
+          <p style="margin:0;">{{this.description}}</p>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</section>

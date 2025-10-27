@@ -1,0 +1,17 @@
+<h1>Travel Packages</h1>
+<p>Browse available trips pulled dynamically from the JSON data file.</p>
+
+<ul class="trip-grid" style="list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding:0;">
+  {{#each trips}}
+    <li style="border:1px solid #eee;border-radius:12px;overflow:hidden;">
+      <img src="{{this.image}}" alt="{{this.name}}">
+      <div style="padding:12px;">
+        <h2 style="margin:0 0 8px 0;font-size:1.1rem;">{{this.name}}</h2>
+        <p style="margin:0 0 6px 0;">Length: {{this.length}}</p>
+        <p style="margin:0 0 6px 0;">Resort: {{this.resort}}</p>
+        <p style="margin:0 0 6px 0;">Per person: ${{this.perPerson}}</p>
+        <p style="margin:0;">{{this.description}}</p>
+      </div>
+    </li>
+  {{/each}}
+</ul>
